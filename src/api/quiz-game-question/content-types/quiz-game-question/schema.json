@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quiz_game_questions",
+  "info": {
+    "singularName": "quiz-game-question",
+    "pluralName": "quiz-game-questions",
+    "displayName": "quiz_game_question"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quiz_game_question_id": {
+      "type": "integer",
+      "required": true
+    },
+    "game_id": {
+      "type": "integer",
+      "required": true
+    },
+    "position": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "max": 20
+    },
+    "question": {
+      "type": "string",
+      "maxLength": 250,
+      "required": true
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "answer_a": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "answer_b": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "answer_c": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "answer_d": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "correct_answer": {
+      "type": "enumeration",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "required": false
+    }
+  }
+}

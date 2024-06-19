@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "speller_game_words",
+  "info": {
+    "singularName": "speller-game-word",
+    "pluralName": "speller-game-words",
+    "displayName": "speller_game_word"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "speller_game_word_id": {
+      "type": "integer",
+      "required": true
+    },
+    "matching_game_id": {
+      "type": "integer",
+      "required": true
+    },
+    "word1": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "picture1": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

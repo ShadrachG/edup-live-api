@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "logins",
+  "info": {
+    "singularName": "login",
+    "pluralName": "logins",
+    "displayName": "login",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "login_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "user_id": {
+      "type": "integer",
+      "required": true
+    },
+    "ip": {
+      "type": "string",
+      "required": true,
+      "maxLength": 15
+    },
+    "active": {
+      "type": "integer",
+      "required": true,
+      "default": 1
+    },
+    "error_code": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "last_activity": {
+      "type": "datetime",
+      "required": true
+    },
+    "login_time": {
+      "type": "datetime",
+      "required": true
+    },
+    "logout_time": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}

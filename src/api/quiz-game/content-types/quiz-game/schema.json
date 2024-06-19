@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quiz_games",
+  "info": {
+    "singularName": "quiz-game",
+    "pluralName": "quiz-games",
+    "displayName": "quiz_game"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quiz_game_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "teacher_id": {
+      "type": "integer",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 250,
+      "required": true
+    },
+    "duration": {
+      "type": "integer",
+      "required": true
+    },
+    "player_count": {
+      "type": "integer",
+      "required": true,
+      "max": 10
+    },
+    "question_count": {
+      "type": "integer",
+      "required": true,
+      "max": 10
+    },
+    "is_random": {
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "password": {
+      "type": "integer",
+      "required": true,
+      "max": 9999
+    },
+    "share_status": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    }
+  }
+}

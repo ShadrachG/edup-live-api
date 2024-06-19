@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "speller_games",
+  "info": {
+    "singularName": "speller-game",
+    "pluralName": "speller-games",
+    "displayName": "speller_game"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "speller_game_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "teacher_id": {
+      "type": "integer",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "duration": {
+      "type": "integer",
+      "required": true
+    },
+    "player_count": {
+      "type": "integer",
+      "required": true,
+      "max": 10
+    },
+    "word_count": {
+      "type": "integer",
+      "required": true,
+      "max": 30
+    },
+    "difficulty_level": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "select_case": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "password": {
+      "type": "integer",
+      "required": true,
+      "max": 9999
+    }
+  }
+}

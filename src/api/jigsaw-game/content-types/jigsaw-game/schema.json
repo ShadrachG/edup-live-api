@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jigsaw_games",
+  "info": {
+    "singularName": "jigsaw-game",
+    "pluralName": "jigsaw-games",
+    "displayName": "jigsaw_game"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "jigsaw_game_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "teacher_id": {
+      "type": "integer",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "player_count": {
+      "type": "integer",
+      "required": true,
+      "max": 10
+    },
+    "difficulty_level": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "password": {
+      "type": "integer",
+      "required": true,
+      "max": 9999
+    }
+  }
+}

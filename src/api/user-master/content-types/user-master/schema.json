@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_masters",
+  "info": {
+    "singularName": "user-master",
+    "pluralName": "user-masters",
+    "displayName": "user_master",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "parent_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    },
+    "schoolName": {
+      "type": "string",
+      "required": true
+    },
+    "countryName": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "integer",
+      "required": true,
+      "max": 100,
+      "default": 1
+    },
+    "maxChildren": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    }
+  }
+}

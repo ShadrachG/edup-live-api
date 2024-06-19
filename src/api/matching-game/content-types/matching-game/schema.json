@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "matching_games",
+  "info": {
+    "singularName": "matching-game",
+    "pluralName": "matching-games",
+    "displayName": "matching_game"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "matching_game_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "teacher_id": {
+      "type": "integer",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 250
+    },
+    "duration": {
+      "type": "integer",
+      "required": true
+    },
+    "player_count": {
+      "type": "integer",
+      "required": true,
+      "max": 10
+    },
+    "word_count": {
+      "type": "integer",
+      "required": true,
+      "max": 10
+    },
+    "password": {
+      "type": "integer",
+      "required": true,
+      "max": 9999
+    }
+  }
+}

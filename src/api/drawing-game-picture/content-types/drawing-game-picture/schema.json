@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drawing_game_pictures",
+  "info": {
+    "singularName": "drawing-game-picture",
+    "pluralName": "drawing-game-pictures",
+    "displayName": "drawing_game_picture"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "drawing_game_picture_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "game_id": {
+      "type": "integer",
+      "required": true
+    },
+    "picture": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

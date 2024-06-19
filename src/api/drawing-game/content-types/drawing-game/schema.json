@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drawing_games",
+  "info": {
+    "singularName": "drawing-game",
+    "pluralName": "drawing-games",
+    "displayName": "drawing_game"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "drawing_game_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "teacher_id": {
+      "type": "integer",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "player_count": {
+      "type": "integer",
+      "required": true,
+      "max": 10
+    },
+    "password": {
+      "type": "integer",
+      "required": true,
+      "max": 9999
+    },
+    "share_status": {
+      "type": "integer"
+    }
+  }
+}

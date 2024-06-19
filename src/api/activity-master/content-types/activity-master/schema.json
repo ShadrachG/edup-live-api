@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "activity_masters",
+  "info": {
+    "singularName": "activity-master",
+    "pluralName": "activity-masters",
+    "displayName": "activity_master",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "activity_title": {
+      "type": "string",
+      "required": true
+    },
+    "activity_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::activity-type.activity-type"
+    },
+    "activity_no_of_users": {
+      "type": "integer",
+      "required": true
+    },
+    "activity_device": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "activity_mode": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "layout": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "activity_start_range": {
+      "type": "integer",
+      "required": true
+    },
+    "activity_end_range": {
+      "type": "integer",
+      "required": true
+    },
+    "activity_password": {
+      "type": "integer",
+      "required": true
+    },
+    "time": {
+      "type": "integer",
+      "required": true
+    },
+    "user_id": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "activity_transactions",
+  "info": {
+    "singularName": "activity-transaction",
+    "pluralName": "activity-transactions",
+    "displayName": "activity_transaction"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "activity_transaction_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "activity_id": {
+      "type": "integer",
+      "required": true
+    },
+    "activity_type_id": {
+      "type": "integer",
+      "required": true
+    },
+    "activity_date": {
+      "type": "date",
+      "required": true
+    },
+    "player1_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "player2_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "player3_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "player4_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "player1_attempt": {
+      "type": "integer",
+      "required": true
+    },
+    "player2_attempt": {
+      "type": "integer",
+      "required": true
+    },
+    "player3_attempt": {
+      "type": "integer",
+      "required": true
+    },
+    "player4_attempt": {
+      "type": "integer",
+      "required": true
+    },
+    "player1_correct": {
+      "type": "integer",
+      "required": true
+    },
+    "player2_correct": {
+      "type": "integer",
+      "required": true
+    },
+    "player3_correct": {
+      "type": "integer",
+      "required": true
+    },
+    "player4_correct": {
+      "type": "integer"
+    }
+  }
+}

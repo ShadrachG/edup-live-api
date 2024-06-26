@@ -12,24 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "user_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "parent_id": {
       "type": "integer"
     },
     "name": {
       "type": "string",
-      "required": true
-    },
-    "email": {
-      "type": "email",
-      "required": true
-    },
-    "password": {
-      "type": "password",
       "required": true
     },
     "schoolName": {
@@ -43,7 +30,6 @@
     "level": {
       "type": "integer",
       "required": true,
-      "max": 100,
       "default": 1
     },
     "maxChildren": {
@@ -54,6 +40,16 @@
     "date": {
       "type": "date",
       "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "email": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
     }
   }
 }

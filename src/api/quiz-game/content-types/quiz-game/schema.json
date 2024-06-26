@@ -4,18 +4,14 @@
   "info": {
     "singularName": "quiz-game",
     "pluralName": "quiz-games",
-    "displayName": "quiz_game"
+    "displayName": "quiz_game",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "quiz_game_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "teacher_id": {
       "type": "integer",
       "required": true
@@ -31,28 +27,25 @@
     },
     "player_count": {
       "type": "integer",
-      "required": true,
-      "max": 10
+      "required": true
     },
     "question_count": {
       "type": "integer",
-      "required": true,
-      "max": 10
+      "required": true
     },
     "is_random": {
       "type": "integer",
       "default": 0,
       "required": true
     },
-    "password": {
-      "type": "integer",
-      "required": true,
-      "max": 9999
-    },
     "share_status": {
       "type": "integer",
       "required": true,
       "default": 0
+    },
+    "password": {
+      "type": "string",
+      "required": false
     }
   }
 }

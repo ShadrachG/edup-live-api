@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "clock_games",
+  "collectionName": "number_grid_games",
   "info": {
-    "singularName": "clock-game",
-    "pluralName": "clock-games",
-    "displayName": "clock_game",
-    "description": ""
+    "singularName": "number-grid-game",
+    "pluralName": "number-grid-games",
+    "displayName": "number_grid_game"
   },
   "options": {
     "draftAndPublish": true
@@ -29,22 +28,36 @@
       "type": "integer",
       "required": true
     },
-    "questions_count": {
+    "start": {
       "type": "integer",
       "required": true
     },
-    "difficulty_level": {
-      "type": "string",
-      "required": true,
-      "maxLength": 255
+    "end": {
+      "type": "integer",
+      "required": true
     },
-    "select_type": {
-      "type": "string",
+    "method": {
+      "type": "enumeration",
+      "enum": [
+        "percentage",
+        "multiples",
+        "custom"
+      ],
       "required": true,
-      "maxLength": 255
+      "default": "percentage"
+    },
+    "percentage": {
+      "type": "integer"
+    },
+    "multiples": {
+      "type": "string"
+    },
+    "custom_list": {
+      "type": "string"
     },
     "password": {
       "type": "string",
+      "required": false,
       "maxLength": 64
     }
   }

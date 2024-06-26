@@ -4,17 +4,14 @@
   "info": {
     "singularName": "quiz-game-question",
     "pluralName": "quiz-game-questions",
-    "displayName": "quiz_game_question"
+    "displayName": "quiz_game_question",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "quiz_game_question_id": {
-      "type": "integer",
-      "required": true
-    },
     "game_id": {
       "type": "integer",
       "required": true
@@ -22,43 +19,36 @@
     "position": {
       "type": "integer",
       "required": true,
-      "default": 0,
-      "max": 20
+      "default": 0
     },
     "question": {
       "type": "string",
       "maxLength": 250,
-      "required": true
-    },
-    "picture": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      "required": false
     },
     "answer_a": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 250
     },
     "answer_b": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 250
     },
     "answer_c": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 250
     },
     "answer_d": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 250
+    },
+    "picture": {
+      "type": "string",
+      "maxLength": 255
     },
     "correct_answer": {
       "type": "enumeration",
@@ -67,8 +57,7 @@
         "B",
         "C",
         "D"
-      ],
-      "required": false
+      ]
     }
   }
 }

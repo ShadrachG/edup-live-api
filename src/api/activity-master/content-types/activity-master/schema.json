@@ -16,11 +16,6 @@
       "type": "string",
       "required": true
     },
-    "activity_type": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::activity-type.activity-type"
-    },
     "activity_no_of_users": {
       "type": "integer",
       "required": true
@@ -59,6 +54,11 @@
     "user_id": {
       "type": "integer",
       "required": true
+    },
+    "activity_type": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
     }
   }
 }

@@ -4,18 +4,14 @@
   "info": {
     "singularName": "activity-transaction",
     "pluralName": "activity-transactions",
-    "displayName": "activity_transaction"
+    "displayName": "activity_transaction",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "activity_transaction_id": {
-      "type": "string",
-      "required": true,
-      "unique": true
-    },
     "activity_id": {
       "type": "integer",
       "required": true
@@ -30,22 +26,22 @@
     },
     "player1_name": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 100
     },
     "player2_name": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 100
     },
     "player3_name": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 100
     },
     "player4_name": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 100
     },
     "player1_attempt": {

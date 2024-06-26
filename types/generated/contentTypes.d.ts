@@ -801,11 +801,6 @@ export interface ApiActivityMasterActivityMaster extends Schema.CollectionType {
   };
   attributes: {
     activity_title: Attribute.String & Attribute.Required;
-    activity_type: Attribute.Relation<
-      'api::activity-master.activity-master',
-      'oneToOne',
-      'api::activity-type.activity-type'
-    >;
     activity_no_of_users: Attribute.Integer & Attribute.Required;
     activity_device: Attribute.String &
       Attribute.Required &
@@ -827,6 +822,11 @@ export interface ApiActivityMasterActivityMaster extends Schema.CollectionType {
     activity_password: Attribute.Integer & Attribute.Required;
     time: Attribute.Integer & Attribute.Required;
     user_id: Attribute.Integer & Attribute.Required;
+    activity_type: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -852,34 +852,28 @@ export interface ApiActivityTransactionActivityTransaction
     singularName: 'activity-transaction';
     pluralName: 'activity-transactions';
     displayName: 'activity_transaction';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    activity_transaction_id: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique;
     activity_id: Attribute.Integer & Attribute.Required;
     activity_type_id: Attribute.Integer & Attribute.Required;
     activity_date: Attribute.Date & Attribute.Required;
     player1_name: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 100;
       }>;
     player2_name: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 100;
       }>;
     player3_name: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 100;
       }>;
     player4_name: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 100;
       }>;
@@ -960,7 +954,6 @@ export interface ApiClockGameClockGame extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    clock_game_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
     teacher_id: Attribute.Integer & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -968,22 +961,8 @@ export interface ApiClockGameClockGame extends Schema.CollectionType {
         maxLength: 255;
       }>;
     duration: Attribute.Integer & Attribute.Required;
-    player_count: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 10;
-        },
-        number
-      >;
-    questions_count: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 10;
-        },
-        number
-      >;
+    player_count: Attribute.Integer & Attribute.Required;
+    questions_count: Attribute.Integer & Attribute.Required;
     difficulty_level: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
@@ -994,13 +973,10 @@ export interface ApiClockGameClockGame extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 255;
       }>;
-    password: Attribute.Integer &
-      Attribute.SetMinMax<
-        {
-          max: 9999;
-        },
-        number
-      >;
+    password: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1025,12 +1001,12 @@ export interface ApiDrawingGameDrawingGame extends Schema.CollectionType {
     singularName: 'drawing-game';
     pluralName: 'drawing-games';
     displayName: 'drawing_game';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    drawing_game_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
     teacher_id: Attribute.Integer & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -1045,15 +1021,11 @@ export interface ApiDrawingGameDrawingGame extends Schema.CollectionType {
         },
         number
       >;
-    password: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 9999;
-        },
-        number
-      >;
     share_status: Attribute.Integer;
+    password: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1079,16 +1051,17 @@ export interface ApiDrawingGamePictureDrawingGamePicture
     singularName: 'drawing-game-picture';
     pluralName: 'drawing-game-pictures';
     displayName: 'drawing_game_picture';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    drawing_game_picture_id: Attribute.Integer &
-      Attribute.Required &
-      Attribute.Unique;
     game_id: Attribute.Integer & Attribute.Required;
-    picture: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    picture: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1113,12 +1086,12 @@ export interface ApiJigsawGameJigsawGame extends Schema.CollectionType {
     singularName: 'jigsaw-game';
     pluralName: 'jigsaw-games';
     displayName: 'jigsaw_game';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    jigsaw_game_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
     teacher_id: Attribute.Integer & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -1138,14 +1111,10 @@ export interface ApiJigsawGameJigsawGame extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 250;
       }>;
-    password: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 9999;
-        },
-        number
-      >;
+    password: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1171,16 +1140,17 @@ export interface ApiJigsawGamePictureJigsawGamePicture
     singularName: 'jigsaw-game-picture';
     pluralName: 'jigsaw-game-pictures';
     displayName: 'jigsaw_game_picture';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    jigsaw_game_picture_id: Attribute.Integer &
-      Attribute.Required &
-      Attribute.Unique;
     game_id: Attribute.Integer & Attribute.Required;
-    picture: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    picture: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1211,7 +1181,6 @@ export interface ApiLoginLogin extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    login_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
     user_id: Attribute.Integer & Attribute.Required;
     ip: Attribute.String &
       Attribute.Required &
@@ -1220,9 +1189,9 @@ export interface ApiLoginLogin extends Schema.CollectionType {
       }>;
     active: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
     error_code: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
-    last_activity: Attribute.DateTime & Attribute.Required;
-    login_time: Attribute.DateTime & Attribute.Required;
-    logout_time: Attribute.DateTime & Attribute.Required;
+    last_activity: Attribute.BigInteger;
+    login_time: Attribute.BigInteger & Attribute.Required;
+    logout_time: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1247,12 +1216,12 @@ export interface ApiMatchingGameMatchingGame extends Schema.CollectionType {
     singularName: 'matching-game';
     pluralName: 'matching-games';
     displayName: 'matching_game';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    matching_game_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
     teacher_id: Attribute.Integer & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -1276,14 +1245,10 @@ export interface ApiMatchingGameMatchingGame extends Schema.CollectionType {
         },
         number
       >;
-    password: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 9999;
-        },
-        number
-      >;
+    password: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1309,27 +1274,29 @@ export interface ApiMatchingGameWordMatchingGameWord
     singularName: 'matching-game-word';
     pluralName: 'matching-game-words';
     displayName: 'matching_game_word';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    matching_game_word_id: Attribute.Integer &
-      Attribute.Required &
-      Attribute.Unique;
     matching_game_id: Attribute.Integer & Attribute.Required;
     word1: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
       }>;
-    picture1: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     word2: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
       }>;
-    picture2: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    picture1: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    picture2: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1354,12 +1321,12 @@ export interface ApiNumberGameNumberGame extends Schema.CollectionType {
     singularName: 'number-game';
     pluralName: 'number-games';
     displayName: 'number_game';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    number_game_id: Attribute.Integer & Attribute.Required;
     teacher_id: Attribute.Integer & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -1412,18 +1379,67 @@ export interface ApiNumberGameNumberGame extends Schema.CollectionType {
   };
 }
 
+export interface ApiNumberGridGameNumberGridGame extends Schema.CollectionType {
+  collectionName: 'number_grid_games';
+  info: {
+    singularName: 'number-grid-game';
+    pluralName: 'number-grid-games';
+    displayName: 'number_grid_game';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    teacher_id: Attribute.Integer & Attribute.Required;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    duration: Attribute.Integer & Attribute.Required;
+    player_count: Attribute.Integer & Attribute.Required;
+    start: Attribute.Integer & Attribute.Required;
+    end: Attribute.Integer & Attribute.Required;
+    method: Attribute.Enumeration<['percentage', 'multiples', 'custom']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'percentage'>;
+    percentage: Attribute.Integer;
+    multiples: Attribute.String;
+    custom_list: Attribute.String;
+    password: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::number-grid-game.number-grid-game',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::number-grid-game.number-grid-game',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiQuizGameQuizGame extends Schema.CollectionType {
   collectionName: 'quiz_games';
   info: {
     singularName: 'quiz-game';
     pluralName: 'quiz-games';
     displayName: 'quiz_game';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    quiz_game_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
     teacher_id: Attribute.Integer & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -1431,34 +1447,13 @@ export interface ApiQuizGameQuizGame extends Schema.CollectionType {
         maxLength: 250;
       }>;
     duration: Attribute.Integer & Attribute.Required;
-    player_count: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 10;
-        },
-        number
-      >;
-    question_count: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 10;
-        },
-        number
-      >;
+    player_count: Attribute.Integer & Attribute.Required;
+    question_count: Attribute.Integer & Attribute.Required;
     is_random: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
-    password: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 9999;
-        },
-        number
-      >;
     share_status: Attribute.Integer &
       Attribute.Required &
       Attribute.DefaultTo<0>;
+    password: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1484,47 +1479,37 @@ export interface ApiQuizGameQuestionQuizGameQuestion
     singularName: 'quiz-game-question';
     pluralName: 'quiz-game-questions';
     displayName: 'quiz_game_question';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    quiz_game_question_id: Attribute.Integer & Attribute.Required;
     game_id: Attribute.Integer & Attribute.Required;
-    position: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 20;
-        },
-        number
-      > &
-      Attribute.DefaultTo<0>;
+    position: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
     question: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
       }>;
-    picture: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     answer_a: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
       }>;
     answer_b: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
       }>;
     answer_c: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
       }>;
     answer_d: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
+      }>;
+    picture: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
       }>;
     correct_answer: Attribute.Enumeration<['A', 'B', 'C', 'D']>;
     createdAt: Attribute.DateTime;
@@ -1551,12 +1536,12 @@ export interface ApiSpellerGameSpellerGame extends Schema.CollectionType {
     singularName: 'speller-game';
     pluralName: 'speller-games';
     displayName: 'speller_game';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    speller_game_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
     teacher_id: Attribute.Integer & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -1588,16 +1573,12 @@ export interface ApiSpellerGameSpellerGame extends Schema.CollectionType {
     select_case: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
-        maxLength: 250;
+        maxLength: 20;
       }>;
-    password: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 9999;
-        },
-        number
-      >;
+    password: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1623,19 +1604,21 @@ export interface ApiSpellerGameWordSpellerGameWord
     singularName: 'speller-game-word';
     pluralName: 'speller-game-words';
     displayName: 'speller_game_word';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    speller_game_word_id: Attribute.Integer & Attribute.Required;
     matching_game_id: Attribute.Integer & Attribute.Required;
     word1: Attribute.String &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 250;
       }>;
-    picture1: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    picture: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1678,6 +1661,36 @@ export interface ApiTestTest extends Schema.CollectionType {
   };
 }
 
+export interface ApiTestingFileTestingFile extends Schema.CollectionType {
+  collectionName: 'testing_files';
+  info: {
+    singularName: 'testing-file';
+    pluralName: 'testing-files';
+    displayName: 'testing_file';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    testId: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::testing-file.testing-file',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::testing-file.testing-file',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiUserMasterUserMaster extends Schema.CollectionType {
   collectionName: 'user_masters';
   info: {
@@ -1690,26 +1703,25 @@ export interface ApiUserMasterUserMaster extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    user_id: Attribute.Integer & Attribute.Required & Attribute.Unique;
     parent_id: Attribute.Integer;
     name: Attribute.String & Attribute.Required;
-    email: Attribute.Email & Attribute.Required;
-    password: Attribute.Password & Attribute.Required;
     schoolName: Attribute.String & Attribute.Required;
     countryName: Attribute.String & Attribute.Required;
-    level: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 100;
-        },
-        number
-      > &
-      Attribute.DefaultTo<1>;
+    level: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<1>;
     maxChildren: Attribute.Integer &
       Attribute.Required &
       Attribute.DefaultTo<0>;
     date: Attribute.Date & Attribute.Required;
+    password: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    email: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1734,14 +1746,12 @@ export interface ApiWordSearchGameWordSearchGame extends Schema.CollectionType {
     singularName: 'word-search-game';
     pluralName: 'word-search-games';
     displayName: 'word_search_game';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    word_search_game_id: Attribute.Integer &
-      Attribute.Required &
-      Attribute.Unique;
     teacher_id: Attribute.Integer & Attribute.Required;
     title: Attribute.String &
       Attribute.Required &
@@ -1792,15 +1802,12 @@ export interface ApiWordSearchGameWordSearchGame extends Schema.CollectionType {
         },
         number
       >;
-    words: Attribute.String & Attribute.Required;
-    password: Attribute.Integer &
+    words: Attribute.String;
+    password: Attribute.String &
       Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 9999;
-        },
-        number
-      >;
+      Attribute.SetMinMaxLength<{
+        maxLength: 64;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1849,11 +1856,13 @@ declare module '@strapi/types' {
       'api::matching-game.matching-game': ApiMatchingGameMatchingGame;
       'api::matching-game-word.matching-game-word': ApiMatchingGameWordMatchingGameWord;
       'api::number-game.number-game': ApiNumberGameNumberGame;
+      'api::number-grid-game.number-grid-game': ApiNumberGridGameNumberGridGame;
       'api::quiz-game.quiz-game': ApiQuizGameQuizGame;
       'api::quiz-game-question.quiz-game-question': ApiQuizGameQuestionQuizGameQuestion;
       'api::speller-game.speller-game': ApiSpellerGameSpellerGame;
       'api::speller-game-word.speller-game-word': ApiSpellerGameWordSpellerGameWord;
       'api::test.test': ApiTestTest;
+      'api::testing-file.testing-file': ApiTestingFileTestingFile;
       'api::user-master.user-master': ApiUserMasterUserMaster;
       'api::word-search-game.word-search-game': ApiWordSearchGameWordSearchGame;
     }

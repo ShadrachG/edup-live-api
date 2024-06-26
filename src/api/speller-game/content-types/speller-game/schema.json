@@ -4,18 +4,14 @@
   "info": {
     "singularName": "speller-game",
     "pluralName": "speller-games",
-    "displayName": "speller_game"
+    "displayName": "speller_game",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "speller_game_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "teacher_id": {
       "type": "integer",
       "required": true
@@ -47,12 +43,11 @@
     "select_case": {
       "type": "string",
       "required": true,
-      "maxLength": 250
+      "maxLength": 20
     },
     "password": {
-      "type": "integer",
-      "required": true,
-      "max": 9999
+      "type": "string",
+      "maxLength": 64
     }
   }
 }

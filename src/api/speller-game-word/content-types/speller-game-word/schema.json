@@ -4,35 +4,27 @@
   "info": {
     "singularName": "speller-game-word",
     "pluralName": "speller-game-words",
-    "displayName": "speller_game_word"
+    "displayName": "speller_game_word",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "speller_game_word_id": {
-      "type": "integer",
-      "required": true
-    },
     "matching_game_id": {
       "type": "integer",
       "required": true
     },
     "word1": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 250
     },
-    "picture1": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+    "picture": {
+      "type": "string",
+      "required": false,
+      "maxLength": 255
     }
   }
 }

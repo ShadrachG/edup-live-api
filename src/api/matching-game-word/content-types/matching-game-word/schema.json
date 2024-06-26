@@ -4,18 +4,14 @@
   "info": {
     "singularName": "matching-game-word",
     "pluralName": "matching-game-words",
-    "displayName": "matching_game_word"
+    "displayName": "matching_game_word",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "matching_game_word_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "matching_game_id": {
       "type": "integer",
       "required": true
@@ -23,32 +19,20 @@
     "word1": {
       "type": "string",
       "maxLength": 250,
-      "required": true
-    },
-    "picture1": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      "required": false
     },
     "word2": {
       "type": "string",
-      "required": true,
+      "required": false,
       "maxLength": 250
     },
+    "picture1": {
+      "type": "string",
+      "maxLength": 255
+    },
     "picture2": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      "type": "string",
+      "maxLength": 255
     }
   }
 }

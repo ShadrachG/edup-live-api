@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testing_files",
+  "info": {
+    "singularName": "testing-file",
+    "pluralName": "testing-files",
+    "displayName": "testing_file"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "testId": {
+      "type": "integer"
+    }
+  }
+}

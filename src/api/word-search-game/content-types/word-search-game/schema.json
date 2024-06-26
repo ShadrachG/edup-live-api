@@ -4,18 +4,14 @@
   "info": {
     "singularName": "word-search-game",
     "pluralName": "word-search-games",
-    "displayName": "word_search_game"
+    "displayName": "word_search_game",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "word_search_game_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "teacher_id": {
       "type": "integer",
       "required": true
@@ -69,12 +65,12 @@
     },
     "words": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "password": {
-      "type": "integer",
+      "type": "string",
       "required": true,
-      "max": 9999
+      "maxLength": 64
     }
   }
 }

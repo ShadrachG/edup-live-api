@@ -4,18 +4,14 @@
   "info": {
     "singularName": "jigsaw-game",
     "pluralName": "jigsaw-games",
-    "displayName": "jigsaw_game"
+    "displayName": "jigsaw_game",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "jigsaw_game_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "teacher_id": {
       "type": "integer",
       "required": true
@@ -36,9 +32,8 @@
       "maxLength": 250
     },
     "password": {
-      "type": "integer",
-      "required": true,
-      "max": 9999
+      "type": "string",
+      "maxLength": 64
     }
   }
 }

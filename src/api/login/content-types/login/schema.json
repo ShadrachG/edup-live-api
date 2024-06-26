@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "login_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "user_id": {
       "type": "integer",
       "required": true
@@ -37,16 +32,14 @@
       "default": 0
     },
     "last_activity": {
-      "type": "datetime",
-      "required": true
+      "type": "biginteger"
     },
     "login_time": {
-      "type": "datetime",
+      "type": "biginteger",
       "required": true
     },
     "logout_time": {
-      "type": "datetime",
-      "required": true
+      "type": "biginteger"
     }
   }
 }

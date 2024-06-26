@@ -4,18 +4,14 @@
   "info": {
     "singularName": "drawing-game",
     "pluralName": "drawing-games",
-    "displayName": "drawing_game"
+    "displayName": "drawing_game",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "drawing_game_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "teacher_id": {
       "type": "integer",
       "required": true
@@ -30,13 +26,12 @@
       "required": true,
       "max": 10
     },
-    "password": {
-      "type": "integer",
-      "required": true,
-      "max": 9999
-    },
     "share_status": {
       "type": "integer"
+    },
+    "password": {
+      "type": "string",
+      "maxLength": 64
     }
   }
 }

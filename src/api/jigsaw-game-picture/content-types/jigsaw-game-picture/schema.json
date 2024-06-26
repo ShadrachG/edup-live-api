@@ -4,31 +4,21 @@
   "info": {
     "singularName": "jigsaw-game-picture",
     "pluralName": "jigsaw-game-pictures",
-    "displayName": "jigsaw_game_picture"
+    "displayName": "jigsaw_game_picture",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "jigsaw_game_picture_id": {
-      "type": "integer",
-      "required": true,
-      "unique": true
-    },
     "game_id": {
       "type": "integer",
       "required": true
     },
     "picture": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      "type": "string",
+      "maxLength": 255
     }
   }
 }
